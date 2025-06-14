@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ evaluacion.titulo }} - SkillTrade{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title mb-4">{{ evaluacion.titulo }}</h1>
+            
+            <div class="mb-4">
+                <h5>Puntuación</h5>
+                <div class="rating">
+                    {% for i in "12345" %}
+                        {% if forloop.counter <= evaluacion.puntuacion %}
+                            <i class="fas fa-star text-warning fs-4"></i>
+                        {% else %}
+                            <i class="far fa-star text-warning fs-4"></i>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <h5>Comentario</h5>
+                <p class="card-text">{{ evaluacion.comentario }}</p>
+            </div>
+
+            <div class="d-flex gap-2">
+                <a href="{% url 'evaluaciones:evaluacion_update' evaluacion.pk %}" class="btn btn-primary">
+                    <i class="fas fa-edit"></i> Editar
+                </a>
+                <a href="{% url 'evaluaciones:evaluacion_delete' evaluacion.pk %}" class="btn btn-danger">
+                    <i class="fas fa-trash"></i> Eliminar
+                </a>
+                <a href="{% url 'evaluaciones:evaluacion_list' %}" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Volver
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

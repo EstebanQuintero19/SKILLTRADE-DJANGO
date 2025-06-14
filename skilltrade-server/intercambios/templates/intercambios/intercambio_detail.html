@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ intercambio.titulo }} - SkillTrade{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="card-title">{{ intercambio.titulo }}</h1>
+                <span class="badge {% if intercambio.aceptado %}bg-success{% else %}bg-warning{% endif %} fs-5">
+                    {{ intercambio.aceptado|yesno:"Aceptado,Pendiente" }}
+                </span>
+            </div>
+            
+            <div class="mb-4">
+                <h5>Descripción</h5>
+                <p class="card-text">{{ intercambio.descripcion }}</p>
+            </div>
+
+            <div class="d-flex gap-2">
+                <a href="{% url 'intercambios:intercambio_update' intercambio.pk %}" class="btn btn-primary">
+                    <i class="fas fa-edit"></i> Editar
+                </a>
+                <a href="{% url 'intercambios:intercambio_delete' intercambio.pk %}" class="btn btn-danger">
+                    <i class="fas fa-trash"></i> Eliminar
+                </a>
+                <a href="{% url 'intercambios:intercambio_list' %}" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Volver
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

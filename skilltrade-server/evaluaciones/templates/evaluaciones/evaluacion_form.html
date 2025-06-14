@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if form.instance.pk %}
+        Editar Evaluación - SkillTrade
+    {% else %}
+        Nueva Evaluación - SkillTrade
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title mb-4">
+                {% if form.instance.pk %}
+                    Editar Evaluación
+                {% else %}
+                    Nueva Evaluación
+                {% endif %}
+            </h1>
+
+            <form method="post">
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label for="{{ form.titulo.id_for_label }}" class="form-label">Título</label>
+                    {{ form.titulo.errors }}
+                    <input type="text" 
+                           class="form-control {% if form.titulo.errors %}is-invalid{% endif %}" 
+                           id="{{ form.titulo.id_for_label }}"
+                           name="{{ form.titulo.html_name }}"
+                           value="{{ form.titulo.value|default:'' }}"
+                           required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="{{ form.comentario.id_for_label }}" class="form-label">Comentario</label>
+                    {{ form.comentario.errors }}
+                    <textarea class="form-control {% if form.comentario.errors %}is-invalid{% endif %}"
+                              id="{{ form.comentario.id_for_label }}"
+                              name="{{ form.comentario.html_name }}"
+                              rows="4"
+                              required>{{ form.comentario.value|default:'' }}</textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="{{ form.puntuacion.id_for_label }}" class="form-label">Puntuación</label>
+                    {{ form.puntuacion.errors }}
+                    <select class="form-select {% if form.puntuacion.errors %}is-invalid{% endif %}"
+                            id="{{ form.puntuacion.id_for_label }}"
+                            name="{{ form.puntuacion.html_name }}"
+                            required>
+                        <option value="">Selecciona una puntuación</option>
+                        {% for i in "12345" %}
+                            <option value="{{ forloop.counter }}" 
+                                    {% if form.puntuacion.value == forloop.counter %}selected{% endif %}>
+                                {{ forloop.counter }} {% if forloop.counter == 1 %}estrella{% else %}estrellas{% endif %}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">
+                        {% if form.instance.pk %}
+                            Guardar Cambios
+                        {% else %}
+                            Crear Evaluación
+                        {% endif %}
+                    </button>
+                    <a href="{% url 'evaluaciones:evaluacion_list' %}" class="btn btn-secondary">
+                        Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Evaluaciones - SkillTrade{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Evaluaciones</h1>
+        <a href="{% url 'evaluaciones:evaluacion_create' %}" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Nueva Evaluación
+        </a>
+    </div>
+
+    <div class="row">
+        {% for evaluacion in evaluaciones %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ evaluacion.titulo }}</h5>
+                    <p class="card-text">{{ evaluacion.comentario|truncatewords:30 }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="rating">
+                            {% for i in "12345" %}
+                                {% if forloop.counter <= evaluacion.puntuacion %}
+                                    <i class="fas fa-star text-warning"></i>
+                                {% else %}
+                                    <i class="far fa-star text-warning"></i>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="btn-group">
+                            <a href="{% url 'evaluaciones:evaluacion_detail' evaluacion.pk %}" class="btn btn-sm btn-outline-primary">
+                                Ver
+                            </a>
+                            <a href="{% url 'evaluaciones:evaluacion_update' evaluacion.pk %}" class="btn btn-sm btn-outline-secondary">
+                                Editar
+                            </a>
+                            <a href="{% url 'evaluaciones:evaluacion_delete' evaluacion.pk %}" class="btn btn-sm btn-outline-danger">
+                                Eliminar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info">
+                No hay evaluaciones disponibles.
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %} 

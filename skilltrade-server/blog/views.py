@@ -1,13 +1,22 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
-# Create your views here.
 
 def inicio(request):
-    return HttpResponse('<h1>Bienvenido a mi Blog</h1>')
+    """
+    Vista para la página principal del blog.
+    Renderiza el template index.html
+    """
+    return render(request, 'blog/index.html')
 
 def contacto(request):
-    return HttpResponse('<p>Contáctanos en: correo@ejemplo.com</p>')
+    """
+    Vista para la página de contacto.
+    Renderiza el template contacto.html
+    """
+    return render(request, 'blog/contacto.html')
 
 def galeriavideos(request):
-    return HttpResponse("enlaces de videos a youtube")
+    """
+    Vista para la galería de videos.
+    Renderiza el template galeria.html
+    """
+    return render(request, 'blog/galeria.html')

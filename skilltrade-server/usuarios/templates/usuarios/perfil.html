@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Perfil de Usuario - SkillTrade{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h1 class="card-title">{{ user.username }}</h1>
+                    <p class="text-muted">{{ user.email }}</p>
+                    <a href="{% url 'usuarios:editar_perfil' %}" class="btn btn-primary">Editar Perfil</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Información Personal</h2>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Nombre:</strong> {{ user.first_name }}</p>
+                            <p><strong>Apellido:</strong> {{ user.last_name }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Email:</strong> {{ user.email }}</p>
+                            <p><strong>Fecha de registro:</strong> {{ user.date_joined|date:"d/m/Y" }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h2 class="card-title">Actividad Reciente</h2>
+                    <hr>
+                    <div class="list-group">
+                        {% for intercambio in intercambios %}
+                        <a href="{% url 'intercambios:detalle' intercambio.id %}" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{ intercambio.titulo }}</h5>
+                                <small>{{ intercambio.fecha_creacion|date:"d/m/Y" }}</small>
+                            </div>
+                            <p class="mb-1">{{ intercambio.descripcion|truncatewords:30 }}</p>
+                        </a>
+                        {% empty %}
+                        <p class="text-muted">No hay actividad reciente.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
