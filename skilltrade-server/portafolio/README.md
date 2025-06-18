@@ -4,13 +4,7 @@
 
 La aplicación `portafolio` es un sistema completo de portafolio personal para desarrolladores web, construido con Django y Bootstrap. Incluye tres vistas principales con plantillas modernas y responsivas.
 
-## Características
 
-### 🎨 Diseño Moderno
-- **Bootstrap 5.3.0**: Framework CSS moderno y responsivo
-- **Font Awesome 6.4.0**: Iconos vectoriales profesionales
-- **Google Fonts (Poppins)**: Tipografía moderna y legible
-- **Diseño responsivo**: Optimizado para móviles, tablets y desktop
 
 ### 📱 Vistas Disponibles
 
