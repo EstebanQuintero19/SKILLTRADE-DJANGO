@@ -1,19 +1,158 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Blog - SkillTrade</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    <header>
-        <h1>Bienvenido al Blog de SkillTrade</h1>
-    </header>
-    <main>
+{% extends 'blog/base.html' %}
+
+{% block title %}Inicio - SkillTrade{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">
+                    Intercambia Habilidades, Construye Futuro
+                </h1>
+                <p class="lead mb-4">
+                    Conecta con personas que comparten tus intereses y aprende nuevas habilidades 
+                    a través del intercambio de conocimientos.
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="{% url 'blog:registro' %}" class="btn btn-light btn-lg">
+                        <i class="fas fa-user-plus me-2"></i>Comenzar
+                    </a>
+                    <a href="{% url 'blog:servicios' %}" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-info-circle me-2"></i>Más Info
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <i class="fas fa-exchange-alt" style="font-size: 8rem; opacity: 0.8;"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-3">¿Por qué elegir SkillTrade?</h2>
+                <p class="lead text-muted">
+                    Nuestra plataforma te ofrece las mejores herramientas para el intercambio de habilidades
+                </p>
+            </div>
+        </div>
         
-    </main>
-    <footer>
-        <p>&copy; 2024 SkillTrade. Todos los derechos reservados.</p>
-    </footer>
-</body>
-</html>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 text-center p-4">
+                    <div class="card-body">
+                        <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Comunidad Activa</h5>
+                        <p class="card-text">
+                            Únete a una comunidad vibrante de personas apasionadas por aprender y enseñar.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 text-center p-4">
+                    <div class="card-body">
+                        <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Seguro y Confiable</h5>
+                        <p class="card-text">
+                            Todas las interacciones están protegidas y verificadas para tu seguridad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 text-center p-4">
+                    <div class="card-body">
+                        <i class="fas fa-graduation-cap fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Aprendizaje Continuo</h5>
+                        <p class="card-text">
+                            Accede a una amplia variedad de habilidades y conocimientos especializados.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Categories Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-3">Categorías Populares</h2>
+                <p class="lead text-muted">
+                    Explora las habilidades más demandadas en nuestra plataforma
+                </p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-code fa-2x text-primary mb-3"></i>
+                        <h5 class="card-title">Programación</h5>
+                        <p class="card-text">Python, JavaScript, Java, C++</p>
+                        <a href="#" class="btn btn-outline-primary">Explorar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-palette fa-2x text-primary mb-3"></i>
+                        <h5 class="card-title">Diseño</h5>
+                        <p class="card-text">Photoshop, Illustrator, Figma</p>
+                        <a href="#" class="btn btn-outline-primary">Explorar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-language fa-2x text-primary mb-3"></i>
+                        <h5 class="card-title">Idiomas</h5>
+                        <p class="card-text">Inglés, Español, Francés, Alemán</p>
+                        <a href="#" class="btn btn-outline-primary">Explorar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-music fa-2x text-primary mb-3"></i>
+                        <h5 class="card-title">Música</h5>
+                        <p class="card-text">Guitarra, Piano, Canto, Producción</p>
+                        <a href="#" class="btn btn-outline-primary">Explorar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-4">¿Listo para comenzar?</h2>
+        <p class="lead mb-4">
+            Únete a miles de personas que ya están intercambiando habilidades en SkillTrade
+        </p>
+        <a href="{% url 'blog:registro' %}" class="btn btn-light btn-lg">
+            <i class="fas fa-rocket me-2"></i>Crear Cuenta Gratis
+        </a>
+    </div>
+</section>
+{% endblock %}

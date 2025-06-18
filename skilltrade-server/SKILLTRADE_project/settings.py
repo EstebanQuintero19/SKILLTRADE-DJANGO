@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'evaluaciones',
     'cursos',
     'usuarios',
+    'portafolio',
 ]
 
 MIDDLEWARE = [

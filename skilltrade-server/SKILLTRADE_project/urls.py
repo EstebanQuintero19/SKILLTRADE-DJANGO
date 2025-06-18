@@ -27,6 +27,7 @@ urlpatterns = [
     path('evaluaciones/', include('evaluaciones.urls')),
     path('cursos/', include('cursos.urls')),
     path('usuarios/', include('usuarios.urls')),
+    path('portafolio/', include('portafolio.urls')),
 ]
 
 # Configuración para servir archivos estáticos y media en desarrollo

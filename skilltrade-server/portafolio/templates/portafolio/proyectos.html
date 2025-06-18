@@ -1,0 +1,223 @@
+{% extends 'portafolio/base.html' %}
+
+{% block title %}Proyectos - Juan Pérez{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-4 fw-bold mb-4">Mis Proyectos</h1>
+                <p class="lead mb-4">
+                    Una muestra de mi trabajo y las tecnologías que utilizo para crear soluciones innovadoras
+                </p>
+                <p class="text-light">
+                    <i class="fas fa-project-diagram me-2"></i>
+                    {{ total_proyectos }} proyectos destacados
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Grid -->
+<section class="section">
+    <div class="container">
+        <div class="row g-4">
+            {% for proyecto in proyectos %}
+            <div class="col-lg-6">
+                <div class="card h-100">
+                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center" 
+                         style="height: 200px;">
+                        <i class="fas fa-image text-muted" style="font-size: 3rem;"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h4 class="card-title fw-bold">{{ proyecto.titulo }}</h4>
+                            <span class="badge bg-primary">Proyecto</span>
+                        </div>
+                        
+                        <p class="card-text text-muted mb-3">
+                            {{ proyecto.descripcion }}
+                        </p>
+                        
+                        <div class="mb-3">
+                            <h6 class="fw-bold mb-2">Tecnologías utilizadas:</h6>
+                            <div class="d-flex flex-wrap gap-2">
+                                {% for tecnologia in proyecto.tecnologias %}
+                                <span class="badge bg-secondary">{{ tecnologia }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex gap-2">
+                            <a href="{{ proyecto.url }}" class="btn btn-outline-primary btn-sm" target="_blank">
+                                <i class="fab fa-github me-1"></i>Código
+                            </a>
+                            <a href="{{ proyecto.demo }}" class="btn btn-primary btn-sm" target="_blank">
+                                <i class="fas fa-external-link-alt me-1"></i>Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Project Categories -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="section-title">Categorías de Proyectos</h2>
+                <p class="section-subtitle">
+                    Especializado en diferentes tipos de desarrollo web
+                </p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-shopping-cart fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">E-commerce</h5>
+                        <p class="card-text">
+                            Plataformas de comercio electrónico completas con sistemas de pago, 
+                            gestión de inventario y experiencia de usuario optimizada.
+                        </p>
+                        <span class="badge bg-primary">3 proyectos</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-tasks fa-3x text-success"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">Aplicaciones Web</h5>
+                        <p class="card-text">
+                            Aplicaciones web personalizadas para gestión de tareas, 
+                            sistemas de administración y herramientas de productividad.
+                        </p>
+                        <span class="badge bg-success">8 proyectos</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-mobile-alt fa-3x text-warning"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">Sitios Web</h5>
+                        <p class="card-text">
+                            Sitios web corporativos, blogs personales y landing pages 
+                            con diseño moderno y optimización SEO.
+                        </p>
+                        <span class="badge bg-warning">12 proyectos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Development Process -->
+<section class="section">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="section-title">Mi Proceso de Desarrollo</h2>
+                <p class="section-subtitle">
+                    Metodología que sigo para entregar proyectos de alta calidad
+                </p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                         style="width: 80px; height: 80px;">
+                        <i class="fas fa-lightbulb fa-2x"></i>
+                    </div>
+                    <h5 class="fw-bold">1. Planificación</h5>
+                    <p class="text-muted">
+                        Análisis de requisitos y diseño de la arquitectura del proyecto
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                         style="width: 80px; height: 80px;">
+                        <i class="fas fa-code fa-2x"></i>
+                    </div>
+                    <h5 class="fw-bold">2. Desarrollo</h5>
+                    <p class="text-muted">
+                        Implementación del código siguiendo las mejores prácticas
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                         style="width: 80px; height: 80px;">
+                        <i class="fas fa-bug fa-2x"></i>
+                    </div>
+                    <h5 class="fw-bold">3. Testing</h5>
+                    <p class="text-muted">
+                        Pruebas exhaustivas para asegurar la calidad del producto
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                         style="width: 80px; height: 80px;">
+                        <i class="fas fa-rocket fa-2x"></i>
+                    </div>
+                    <h5 class="fw-bold">4. Despliegue</h5>
+                    <p class="text-muted">
+                        Lanzamiento y configuración en producción
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section bg-primary text-white">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-4">¿Te gusta mi trabajo?</h2>
+                <p class="lead mb-4">
+                    Estoy disponible para nuevos proyectos y colaboraciones emocionantes
+                </p>
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                    <a href="{% url 'portafolio:contacto' %}" class="btn btn-light btn-lg">
+                        <i class="fas fa-envelope me-2"></i>Hablemos
+                    </a>
+                    <a href="{% url 'portafolio:inicio' %}" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-user me-2"></i>Conoce Más
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

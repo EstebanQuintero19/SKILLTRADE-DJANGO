@@ -1,6 +1,6 @@
-{% extends 'blog/base.html' %}
+{% extends 'portafolio/base.html' %}
 
-{% block title %}Contacto - SkillTrade{% endblock %}
+{% block title %}Contacto - Juan Pérez{% endblock %}
 
 {% block content %}
 <!-- Hero Section -->
@@ -8,9 +8,9 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-lg-8 mx-auto">
-                <h1 class="display-4 fw-bold mb-4">Contáctanos</h1>
+                <h1 class="display-4 fw-bold mb-4">Contáctame</h1>
                 <p class="lead mb-4">
-                    ¿Tienes preguntas, sugerencias o necesitas ayuda? Estamos aquí para ti
+                    ¿Tienes un proyecto en mente? ¡Me encantaría escuchar sobre él!
                 </p>
             </div>
         </div>
@@ -18,7 +18,7 @@
 </section>
 
 <!-- Contact Section -->
-<section class="py-5">
+<section class="section">
     <div class="container">
         <div class="row g-5">
             <!-- Contact Information -->
@@ -35,7 +35,7 @@
                                 <i class="fas fa-envelope fa-2x text-primary me-3"></i>
                                 <div>
                                     <h6 class="mb-1 fw-bold">Email</h6>
-                                    <p class="mb-0 text-muted">contacto@skilltrade.com</p>
+                                    <p class="mb-0 text-muted">{{ email }}</p>
                                 </div>
                             </div>
                             
@@ -43,42 +43,34 @@
                                 <i class="fas fa-phone fa-2x text-success me-3"></i>
                                 <div>
                                     <h6 class="mb-1 fw-bold">Teléfono</h6>
-                                    <p class="mb-0 text-muted">+52 123 456 7890</p>
+                                    <p class="mb-0 text-muted">{{ telefono }}</p>
                                 </div>
                             </div>
                             
                             <div class="d-flex align-items-center mb-3">
                                 <i class="fas fa-map-marker-alt fa-2x text-warning me-3"></i>
                                 <div>
-                                    <h6 class="mb-1 fw-bold">Dirección</h6>
-                                    <p class="mb-0 text-muted">Ciudad de México, México</p>
-                                </div>
-                            </div>
-                            
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-clock fa-2x text-info me-3"></i>
-                                <div>
-                                    <h6 class="mb-1 fw-bold">Horario</h6>
-                                    <p class="mb-0 text-muted">Lun - Vie: 9:00 - 18:00</p>
+                                    <h6 class="mb-1 fw-bold">Ubicación</h6>
+                                    <p class="mb-0 text-muted">{{ ubicacion }}</p>
                                 </div>
                             </div>
                         </div>
                         
                         <hr>
                         
-                        <h5 class="fw-bold mb-3">Síguenos</h5>
+                        <h5 class="fw-bold mb-3">Sígueme en redes sociales</h5>
                         <div class="d-flex gap-3">
-                            <a href="#" class="btn btn-outline-primary">
-                                <i class="fab fa-facebook"></i>
+                            <a href="{{ redes_sociales.github }}" class="btn btn-outline-dark" target="_blank">
+                                <i class="fab fa-github"></i>
                             </a>
-                            <a href="#" class="btn btn-outline-info">
+                            <a href="{{ redes_sociales.linkedin }}" class="btn btn-outline-primary" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="{{ redes_sociales.twitter }}" class="btn btn-outline-info" target="_blank">
                                 <i class="fab fa-twitter"></i>
                             </a>
-                            <a href="#" class="btn btn-outline-danger">
+                            <a href="{{ redes_sociales.instagram }}" class="btn btn-outline-danger" target="_blank">
                                 <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="btn btn-outline-primary">
-                                <i class="fab fa-linkedin"></i>
                             </a>
                         </div>
                     </div>
@@ -90,10 +82,18 @@
                 <div class="card h-100">
                     <div class="card-header bg-success text-white text-center">
                         <h4 class="mb-0">
-                            <i class="fas fa-envelope me-2"></i>Envíanos un Mensaje
+                            <i class="fas fa-envelope me-2"></i>Envíame un Mensaje
                         </h4>
                     </div>
                     <div class="card-body p-4">
+                        {% if mensaje_enviado %}
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <i class="fas fa-check-circle me-2"></i>
+                            ¡Gracias {{ nombre_contacto }}! Tu mensaje ha sido enviado exitosamente. Te responderé pronto.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                        {% endif %}
+                        
                         <form method="post">
                             {% csrf_token %}
                             <div class="row">
@@ -118,11 +118,11 @@
                                 </label>
                                 <select class="form-select" id="asunto" name="asunto" required>
                                     <option value="">Selecciona un asunto</option>
-                                    <option value="consulta">Consulta General</option>
-                                    <option value="soporte">Soporte Técnico</option>
-                                    <option value="sugerencia">Sugerencia</option>
-                                    <option value="reporte">Reporte de Problema</option>
+                                    <option value="proyecto">Nuevo Proyecto</option>
                                     <option value="colaboracion">Colaboración</option>
+                                    <option value="consulta">Consulta General</option>
+                                    <option value="freelance">Oportunidad Freelance</option>
+                                    <option value="otro">Otro</option>
                                 </select>
                             </div>
                             
@@ -131,13 +131,13 @@
                                     <i class="fas fa-comment me-2"></i>Mensaje
                                 </label>
                                 <textarea class="form-control" id="mensaje" name="mensaje" rows="6" 
-                                          placeholder="Cuéntanos cómo podemos ayudarte..." required></textarea>
+                                          placeholder="Cuéntame sobre tu proyecto o consulta..." required></textarea>
                             </div>
                             
                             <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" id="newsletter" name="newsletter">
                                 <label class="form-check-label" for="newsletter">
-                                    Quiero recibir noticias y actualizaciones por correo electrónico
+                                    Quiero recibir actualizaciones sobre nuevos proyectos y tecnologías
                                 </label>
                             </div>
                             
@@ -155,13 +155,13 @@
 </section>
 
 <!-- FAQ Section -->
-<section class="py-5 bg-light">
+<section class="section bg-light">
     <div class="container">
         <div class="row text-center mb-5">
             <div class="col-lg-8 mx-auto">
-                <h2 class="display-5 fw-bold mb-3">Preguntas Frecuentes</h2>
-                <p class="lead text-muted">
-                    Resolvemos las dudas más comunes de nuestros usuarios
+                <h2 class="section-title">Preguntas Frecuentes</h2>
+                <p class="section-subtitle">
+                    Resolvemos las dudas más comunes sobre mi trabajo
                 </p>
             </div>
         </div>
@@ -172,11 +172,11 @@
                     <div class="card-body">
                         <h5 class="card-title fw-bold">
                             <i class="fas fa-question-circle text-primary me-2"></i>
-                            ¿Cómo funciona el intercambio de habilidades?
+                            ¿Cuánto tiempo toma desarrollar un proyecto?
                         </h5>
                         <p class="card-text">
-                            El intercambio funciona conectando personas que quieren aprender una habilidad 
-                            con otras que pueden enseñarla. Ambos se benefician del intercambio mutuo.
+                            El tiempo varía según la complejidad del proyecto. Un sitio web simple puede tomar 1-2 semanas, 
+                            mientras que aplicaciones complejas pueden requerir 2-3 meses.
                         </p>
                     </div>
                 </div>
@@ -187,11 +187,11 @@
                     <div class="card-body">
                         <h5 class="card-title fw-bold">
                             <i class="fas fa-question-circle text-success me-2"></i>
-                            ¿Es completamente gratuito?
+                            ¿Trabajas con presupuestos específicos?
                         </h5>
                         <p class="card-text">
-                            Sí, el intercambio básico de habilidades es completamente gratuito. 
-                            También ofrecemos servicios premium con características adicionales.
+                            Sí, me adapto a diferentes presupuestos. Siempre proporciono opciones 
+                            que se ajusten a tus necesidades y recursos disponibles.
                         </p>
                     </div>
                 </div>
@@ -202,11 +202,11 @@
                     <div class="card-body">
                         <h5 class="card-title fw-bold">
                             <i class="fas fa-question-circle text-warning me-2"></i>
-                            ¿Cómo garantizan la seguridad?
+                            ¿Ofreces mantenimiento post-lanzamiento?
                         </h5>
                         <p class="card-text">
-                            Implementamos múltiples capas de seguridad, verificación de usuarios 
-                            y un sistema de calificaciones para mantener la comunidad segura.
+                            Absolutamente. Ofrezco servicios de mantenimiento, actualizaciones 
+                            y soporte técnico para asegurar que tu proyecto funcione perfectamente.
                         </p>
                     </div>
                 </div>
@@ -217,11 +217,11 @@
                     <div class="card-body">
                         <h5 class="card-title fw-bold">
                             <i class="fas fa-question-circle text-info me-2"></i>
-                            ¿Puedo cancelar en cualquier momento?
+                            ¿Puedes trabajar con equipos remotos?
                         </h5>
                         <p class="card-text">
-                            Absolutamente. Puedes cancelar tu cuenta o suscripción en cualquier 
-                            momento sin penalizaciones ni costos adicionales.
+                            Sí, tengo experiencia trabajando con equipos distribuidos. 
+                            Utilizo herramientas de comunicación y gestión de proyectos efectivas.
                         </p>
                     </div>
                 </div>
@@ -230,19 +230,65 @@
     </div>
 </section>
 
+<!-- Availability Section -->
+<section class="section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="section-title">Disponibilidad</h2>
+                <p class="section-subtitle">
+                    Actualmente estoy disponible para nuevos proyectos
+                </p>
+                
+                <div class="row g-4 mt-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 text-center">
+                            <div class="card-body">
+                                <i class="fas fa-calendar-check fa-3x text-success mb-3"></i>
+                                <h5 class="card-title fw-bold">Disponible</h5>
+                                <p class="card-text">Para nuevos proyectos y colaboraciones</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card h-100 text-center">
+                            <div class="card-body">
+                                <i class="fas fa-clock fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title fw-bold">Respuesta Rápida</h5>
+                                <p class="card-text">Respondo en menos de 24 horas</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card h-100 text-center">
+                            <div class="card-body">
+                                <i class="fas fa-globe fa-3x text-warning mb-3"></i>
+                                <h5 class="card-title fw-bold">Remoto</h5>
+                                <p class="card-text">Trabajo con clientes de todo el mundo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- CTA Section -->
-<section class="py-5 bg-primary text-white">
+<section class="section bg-primary text-white">
     <div class="container text-center">
-        <h2 class="display-5 fw-bold mb-4">¿Listo para comenzar?</h2>
+        <h2 class="display-5 fw-bold mb-4">¿Listo para comenzar tu proyecto?</h2>
         <p class="lead mb-4">
-            Únete a nuestra comunidad y comienza a intercambiar habilidades hoy mismo
+            No dudes en contactarme para discutir tus ideas y hacerlas realidad
         </p>
         <div class="d-flex gap-3 justify-content-center">
-            <a href="{% url 'blog:registro' %}" class="btn btn-light btn-lg">
-                <i class="fas fa-user-plus me-2"></i>Crear Cuenta
+            <a href="#contact-form" class="btn btn-light btn-lg">
+                <i class="fas fa-paper-plane me-2"></i>Enviar Mensaje
             </a>
-            <a href="{% url 'blog:servicios' %}" class="btn btn-outline-light btn-lg">
-                <i class="fas fa-info-circle me-2"></i>Conocer Servicios
+            <a href="{% url 'portafolio:proyectos' %}" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-eye me-2"></i>Ver Proyectos
             </a>
         </div>
     </div>

@@ -1,0 +1,169 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Registro - SkillTrade{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <div class="card shadow">
+                    <div class="card-header bg-success text-white text-center py-4">
+                        <h3 class="mb-0">
+                            <i class="fas fa-user-plus me-2"></i>Crear Cuenta
+                        </h3>
+                        <p class="mb-0 mt-2">Únete a la comunidad de SkillTrade</p>
+                    </div>
+                    <div class="card-body p-4">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="nombre" class="form-label">
+                                        <i class="fas fa-user me-2"></i>Nombre
+                                    </label>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="apellido" class="form-label">
+                                        <i class="fas fa-user me-2"></i>Apellido
+                                    </label>
+                                    <input type="text" class="form-control" id="apellido" name="apellido" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="email" class="form-label">
+                                    <i class="fas fa-envelope me-2"></i>Correo Electrónico
+                                </label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                                <div class="form-text">
+                                    Nunca compartiremos tu correo electrónico con nadie más.
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="password" class="form-label">
+                                        <i class="fas fa-lock me-2"></i>Contraseña
+                                    </label>
+                                    <input type="password" class="form-control" id="password" name="password" required>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="confirm_password" class="form-label">
+                                        <i class="fas fa-lock me-2"></i>Confirmar Contraseña
+                                    </label>
+                                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="habilidades" class="form-label">
+                                    <i class="fas fa-lightbulb me-2"></i>Habilidades que puedes enseñar
+                                </label>
+                                <select class="form-select" id="habilidades" name="habilidades" multiple>
+                                    <option value="programacion">Programación</option>
+                                    <option value="diseno">Diseño</option>
+                                    <option value="idiomas">Idiomas</option>
+                                    <option value="musica">Música</option>
+                                    <option value="cocina">Cocina</option>
+                                    <option value="deportes">Deportes</option>
+                                    <option value="arte">Arte</option>
+                                    <option value="negocios">Negocios</option>
+                                </select>
+                                <div class="form-text">
+                                    Selecciona las habilidades que puedes enseñar a otros.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="intereses" class="form-label">
+                                    <i class="fas fa-heart me-2"></i>Habilidades que te interesa aprender
+                                </label>
+                                <select class="form-select" id="intereses" name="intereses" multiple>
+                                    <option value="programacion">Programación</option>
+                                    <option value="diseno">Diseño</option>
+                                    <option value="idiomas">Idiomas</option>
+                                    <option value="musica">Música</option>
+                                    <option value="cocina">Cocina</option>
+                                    <option value="deportes">Deportes</option>
+                                    <option value="arte">Arte</option>
+                                    <option value="negocios">Negocios</option>
+                                </select>
+                                <div class="form-text">
+                                    Selecciona las habilidades que te gustaría aprender.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="terminos" name="terminos" required>
+                                <label class="form-check-label" for="terminos">
+                                    Acepto los <a href="#" class="text-primary">términos y condiciones</a> y la 
+                                    <a href="#" class="text-primary">política de privacidad</a>
+                                </label>
+                            </div>
+                            
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="newsletter" name="newsletter">
+                                <label class="form-check-label" for="newsletter">
+                                    Quiero recibir noticias y actualizaciones por correo electrónico
+                                </label>
+                            </div>
+                            
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-success btn-lg">
+                                    <i class="fas fa-user-plus me-2"></i>Crear Cuenta
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <hr class="my-4">
+                        
+                        <div class="text-center">
+                            <p class="mb-3">¿Ya tienes una cuenta?</p>
+                            <a href="{% url 'blog:login' %}" class="btn btn-outline-primary">
+                                <i class="fas fa-sign-in-alt me-2"></i>Iniciar Sesión
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Benefits -->
+                <div class="row mt-4 g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 text-center">
+                            <div class="card-body">
+                                <i class="fas fa-users fa-2x text-primary mb-3"></i>
+                                <h5 class="card-title">Comunidad Global</h5>
+                                <p class="card-text">Conecta con personas de todo el mundo</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card h-100 text-center">
+                            <div class="card-body">
+                                <i class="fas fa-graduation-cap fa-2x text-success mb-3"></i>
+                                <h5 class="card-title">Aprendizaje Gratuito</h5>
+                                <p class="card-text">Intercambia habilidades sin costo</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card h-100 text-center">
+                            <div class="card-body">
+                                <i class="fas fa-shield-alt fa-2x text-warning mb-3"></i>
+                                <h5 class="card-title">100% Seguro</h5>
+                                <p class="card-text">Tu información está protegida</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

@@ -1,0 +1,193 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Servicios - SkillTrade{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-4 fw-bold mb-4">Nuestros Servicios</h1>
+                <p class="lead mb-4">
+                    Descubre todas las opciones que tenemos para ayudarte en tu camino de aprendizaje
+                </p>
+                <p class="text-light">
+                    <i class="fas fa-info-circle me-2"></i>
+                    {{ total_servicios }} servicios disponibles para ti
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            {% for servicio in servicios %}
+            <div class="col-lg-6 col-xl-3">
+                <div class="card h-100 text-center">
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <i class="{{ servicio.icono }} fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">{{ servicio.nombre }}</h5>
+                        <p class="card-text text-muted">{{ servicio.descripcion }}</p>
+                        <div class="mt-3">
+                            <span class="badge bg-success fs-6">{{ servicio.precio }}</span>
+                        </div>
+                        <div class="mt-4">
+                            <a href="#" class="btn btn-primary">
+                                <i class="fas fa-arrow-right me-2"></i>Saber Más
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-3">¿Por qué elegir nuestros servicios?</h2>
+                <p class="lead text-muted">
+                    Cada servicio está diseñado pensando en tus necesidades de aprendizaje
+                </p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="text-center">
+                    <i class="fas fa-clock fa-3x text-primary mb-3"></i>
+                    <h5>Flexibilidad Total</h5>
+                    <p class="text-muted">
+                        Aprende a tu propio ritmo, cuando y donde quieras.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="text-center">
+                    <i class="fas fa-star fa-3x text-primary mb-3"></i>
+                    <h5>Calidad Garantizada</h5>
+                    <p class="text-muted">
+                        Todos nuestros servicios están verificados y certificados.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="text-center">
+                    <i class="fas fa-headset fa-3x text-primary mb-3"></i>
+                    <h5>Soporte 24/7</h5>
+                    <p class="text-muted">
+                        Estamos aquí para ayudarte en cualquier momento.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Comparison -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-3">Compara Planes</h2>
+                <p class="lead text-muted">
+                    Encuentra el plan perfecto para tus necesidades
+                </p>
+            </div>
+        </div>
+        
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-primary">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h4 class="mb-0">Plan Básico</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <h2 class="display-4 fw-bold text-primary">$0</h2>
+                        <p class="text-muted">Para siempre</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Intercambios básicos</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Acceso a comunidad</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Perfil básico</li>
+                            <li class="mb-2 text-muted"><i class="fas fa-times text-danger me-2"></i>Cursos premium</li>
+                            <li class="mb-2 text-muted"><i class="fas fa-times text-danger me-2"></i>Mentoría</li>
+                        </ul>
+                        <a href="{% url 'blog:registro' %}" class="btn btn-outline-primary w-100">Comenzar Gratis</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-warning">
+                    <div class="card-header bg-warning text-dark text-center">
+                        <h4 class="mb-0">Plan Premium</h4>
+                        <span class="badge bg-danger">Más Popular</span>
+                    </div>
+                    <div class="card-body text-center">
+                        <h2 class="display-4 fw-bold text-warning">$29</h2>
+                        <p class="text-muted">Por mes</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Todo del plan básico</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Cursos premium</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Mentoría grupal</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Certificaciones</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Soporte prioritario</li>
+                        </ul>
+                        <a href="#" class="btn btn-warning w-100">Comenzar Ahora</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-success">
+                    <div class="card-header bg-success text-white text-center">
+                        <h4 class="mb-0">Plan Pro</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <h2 class="display-4 fw-bold text-success">$99</h2>
+                        <p class="text-muted">Por mes</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Todo del plan premium</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Mentoría personalizada</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Consultoría 1:1</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Eventos exclusivos</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>API access</li>
+                        </ul>
+                        <a href="#" class="btn btn-success w-100">Comenzar Pro</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-4">¿Tienes dudas sobre nuestros servicios?</h2>
+        <p class="lead mb-4">
+            Nuestro equipo está aquí para ayudarte a encontrar la mejor opción
+        </p>
+        <div class="d-flex gap-3 justify-content-center">
+            <a href="{% url 'blog:contacto' %}" class="btn btn-light btn-lg">
+                <i class="fas fa-envelope me-2"></i>Contactar
+            </a>
+            <a href="{% url 'blog:registro' %}" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-rocket me-2"></i>Probar Gratis
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %} 

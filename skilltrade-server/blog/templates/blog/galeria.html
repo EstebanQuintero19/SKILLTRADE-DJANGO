@@ -3,54 +3,345 @@
 {% block title %}Galería de Videos - SkillTrade{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <h1 class="mb-4">Galería de Videos</h1>
-    
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <!-- Video 1 -->
-        <div class="col">
-            <div class="card h-100">
-                <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" 
-                            title="Video 1" 
-                            allowfullscreen></iframe>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Título del Video 1</h5>
-                    <p class="card-text">Descripción breve del video 1.</p>
-                </div>
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-4 fw-bold mb-4">Galería de Videos</h1>
+                <p class="lead mb-4">
+                    Aprende de nuestros expertos a través de videos educativos y tutoriales
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Video Categories -->
+<section class="py-4">
+    <div class="container">
+        <div class="row text-center mb-4">
+            <div class="col-12">
+                <h3 class="fw-bold">Categorías de Videos</h3>
+                <p class="text-muted">Explora contenido por categoría</p>
             </div>
         </div>
         
-        <!-- Video 2 -->
-        <div class="col">
-            <div class="card h-100">
-                <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" 
-                            title="Video 2" 
-                            allowfullscreen></iframe>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Título del Video 2</h5>
-                    <p class="card-text">Descripción breve del video 2.</p>
-                </div>
+        <div class="row g-3 justify-content-center">
+            <div class="col-auto">
+                <button class="btn btn-outline-primary active">Todos</button>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-outline-primary">Programación</button>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-outline-primary">Diseño</button>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-outline-primary">Idiomas</button>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-outline-primary">Música</button>
             </div>
         </div>
-        
-        <!-- Video 3 -->
-        <div class="col">
-            <div class="card h-100">
-                <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" 
-                            title="Video 3" 
-                            allowfullscreen></iframe>
+    </div>
+</section>
+
+<!-- Videos Grid -->
+<section class="py-5">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Video 1: Python Tutorial -->
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/kqtD5dpn9C8" 
+                                title="Python Tutorial for Beginners" 
+                                allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="badge bg-primary">Programación</span>
+                            <small class="text-muted">15:30</small>
+                        </div>
+                        <h5 class="card-title fw-bold">Python para Principiantes</h5>
+                        <p class="card-text text-muted">
+                            Aprende los fundamentos de Python desde cero. Perfecto para quienes quieren 
+                            comenzar en el mundo de la programación.
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-user-circle text-primary me-2"></i>
+                            <small class="text-muted">Por: Carlos Rodríguez</small>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-eye text-muted me-1"></i>
+                                <small class="text-muted">1,234 vistas</small>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <small class="text-muted">4.8</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">Título del Video 3</h5>
-                    <p class="card-text">Descripción breve del video 3.</p>
+            </div>
+            
+            <!-- Video 2: Web Design -->
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/1PnVor36_40" 
+                                title="Web Design Tutorial" 
+                                allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="badge bg-success">Diseño</span>
+                            <small class="text-muted">22:15</small>
+                        </div>
+                        <h5 class="card-title fw-bold">Diseño Web Moderno</h5>
+                        <p class="card-text text-muted">
+                            Descubre las mejores prácticas para crear sitios web atractivos y funcionales 
+                            con HTML, CSS y JavaScript.
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-user-circle text-success me-2"></i>
+                            <small class="text-muted">Por: Ana Martínez</small>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-eye text-muted me-1"></i>
+                                <small class="text-muted">2,567 vistas</small>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <small class="text-muted">4.9</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video 3: English Learning -->
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/8jLOx1hD3_o" 
+                                title="English Learning" 
+                                allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="badge bg-warning">Idiomas</span>
+                            <small class="text-muted">18:45</small>
+                        </div>
+                        <h5 class="card-title fw-bold">Inglés Conversacional</h5>
+                        <p class="card-text text-muted">
+                            Mejora tu inglés hablado con técnicas prácticas y ejercicios interactivos 
+                            para conversaciones fluidas.
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-user-circle text-warning me-2"></i>
+                            <small class="text-muted">Por: María González</small>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-eye text-muted me-1"></i>
+                                <small class="text-muted">3,891 vistas</small>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <small class="text-muted">4.7</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video 4: Guitar Basics -->
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/0qG_0CbGq_s" 
+                                title="Guitar Tutorial" 
+                                allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="badge bg-danger">Música</span>
+                            <small class="text-muted">25:10</small>
+                        </div>
+                        <h5 class="card-title fw-bold">Guitarra para Principiantes</h5>
+                        <p class="card-text text-muted">
+                            Aprende a tocar guitarra desde cero. Acordes básicos, ritmos y técnicas 
+                            fundamentales para comenzar tu viaje musical.
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-user-circle text-danger me-2"></i>
+                            <small class="text-muted">Por: Luis Fernández</small>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-eye text-muted me-1"></i>
+                                <small class="text-muted">1,756 vistas</small>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <small class="text-muted">4.6</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video 5: React Development -->
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/w7ejDZ8SWv8" 
+                                title="React Tutorial" 
+                                allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="badge bg-primary">Programación</span>
+                            <small class="text-muted">32:20</small>
+                        </div>
+                        <h5 class="card-title fw-bold">React.js Avanzado</h5>
+                        <p class="card-text text-muted">
+                            Domina React.js con hooks, context API y patrones avanzados para crear 
+                            aplicaciones web modernas y escalables.
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-user-circle text-primary me-2"></i>
+                            <small class="text-muted">Por: Carlos Rodríguez</small>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-eye text-muted me-1"></i>
+                                <small class="text-muted">4,123 vistas</small>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <small class="text-muted">4.9</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video 6: Photography -->
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/7ZVyNjKSr0M" 
+                                title="Photography Tutorial" 
+                                allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="badge bg-info">Arte</span>
+                            <small class="text-muted">28:35</small>
+                        </div>
+                        <h5 class="card-title fw-bold">Fotografía Digital</h5>
+                        <p class="card-text text-muted">
+                            Aprende los principios de la fotografía digital, composición y edición 
+                            para capturar momentos increíbles.
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-user-circle text-info me-2"></i>
+                            <small class="text-muted">Por: Sofía Ramírez</small>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-eye text-muted me-1"></i>
+                                <small class="text-muted">2,345 vistas</small>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <small class="text-muted">4.8</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+
+<!-- Featured Video Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-3">Video Destacado</h2>
+                <p class="lead text-muted">
+                    No te pierdas nuestro contenido más popular de la semana
+                </p>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                                title="Featured Video" 
+                                allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body text-center">
+                        <h4 class="card-title fw-bold">Cómo Crear tu Primera Aplicación Web</h4>
+                        <p class="card-text lead">
+                            Un tutorial completo que te guiará paso a paso para crear tu primera 
+                            aplicación web desde cero. Perfecto para principiantes.
+                        </p>
+                        <div class="d-flex justify-content-center align-items-center gap-4">
+                            <span class="badge bg-primary fs-6">Programación</span>
+                            <span class="text-muted">
+                                <i class="fas fa-clock me-1"></i>45:20
+                            </span>
+                            <span class="text-muted">
+                                <i class="fas fa-eye me-1"></i>12,456 vistas
+                            </span>
+                            <span class="text-muted">
+                                <i class="fas fa-star text-warning me-1"></i>4.9
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-4">¿Quieres crear contenido?</h2>
+        <p class="lead mb-4">
+            Comparte tus conocimientos y ayuda a otros a aprender
+        </p>
+        <div class="d-flex gap-3 justify-content-center">
+            <a href="{% url 'blog:registro' %}" class="btn btn-light btn-lg">
+                <i class="fas fa-user-plus me-2"></i>Unirse como Creador
+            </a>
+            <a href="{% url 'blog:contacto' %}" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-envelope me-2"></i>Contactar
+            </a>
+        </div>
+    </div>
+</section>
 {% endblock %} 

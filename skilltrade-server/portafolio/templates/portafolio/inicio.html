@@ -1,0 +1,184 @@
+{% extends 'portafolio/base.html' %}
+
+{% block title %}Inicio - {{ nombre }}{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">
+                    ¡Hola! Soy {{ nombre }}
+                </h1>
+                <h2 class="h3 mb-4 text-light">
+                    {{ titulo }}
+                </h2>
+                <p class="lead mb-4">
+                    {{ descripcion }}
+                </p>
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="{% url 'portafolio:proyectos' %}" class="btn btn-light btn-lg">
+                        <i class="fas fa-eye me-2"></i>Ver Proyectos
+                    </a>
+                    <a href="{% url 'portafolio:contacto' %}" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-envelope me-2"></i>Contactar
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="position-relative">
+                    <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center" 
+                         style="width: 300px; height: 300px;">
+                        <i class="fas fa-user-circle text-primary" style="font-size: 8rem;"></i>
+                    </div>
+                    <div class="position-absolute top-0 start-100 translate-middle">
+                        <div class="bg-accent-color text-white rounded-circle d-flex align-items-center justify-content-center"
+                             style="width: 60px; height: 60px;">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-title">Sobre Mí</h2>
+                <p class="section-subtitle">
+                    Desarrollador apasionado con {{ experiencia }} de experiencia creando soluciones web innovadoras
+                </p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-laptop-code fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">Desarrollo Web</h5>
+                        <p class="card-text">
+                            Especializado en crear aplicaciones web modernas y responsivas 
+                            utilizando las últimas tecnologías y mejores prácticas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-mobile-alt fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">Diseño Responsivo</h5>
+                        <p class="card-text">
+                            Experiencia en crear interfaces de usuario atractivas y funcionales 
+                            que se adaptan perfectamente a cualquier dispositivo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-cogs fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">Optimización</h5>
+                        <p class="card-text">
+                            Enfoque en el rendimiento y la escalabilidad, asegurando que 
+                            cada aplicación sea rápida, eficiente y fácil de mantener.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-title">Mis Habilidades</h2>
+                <p class="section-subtitle">
+                    Tecnologías y herramientas que utilizo para crear soluciones excepcionales
+                </p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="text-center">
+                    {% for habilidad in habilidades %}
+                    <span class="skill-badge">{{ habilidad }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="section bg-primary text-white">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="mb-4">
+                    <i class="fas fa-calendar-alt fa-3x mb-3"></i>
+                    <h3 class="display-4 fw-bold">{{ experiencia }}</h3>
+                    <p class="lead">de Experiencia</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="mb-4">
+                    <i class="fas fa-project-diagram fa-3x mb-3"></i>
+                    <h3 class="display-4 fw-bold">{{ proyectos_completados }}+</h3>
+                    <p class="lead">Proyectos Completados</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="mb-4">
+                    <i class="fas fa-users fa-3x mb-3"></i>
+                    <h3 class="display-4 fw-bold">50+</h3>
+                    <p class="lead">Clientes Satisfechos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-title">¿Listo para trabajar juntos?</h2>
+                <p class="section-subtitle">
+                    Estoy siempre interesado en nuevos proyectos y oportunidades emocionantes
+                </p>
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                    <a href="{% url 'portafolio:proyectos' %}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-eye me-2"></i>Ver Mi Trabajo
+                    </a>
+                    <a href="{% url 'portafolio:contacto' %}" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-paper-plane me-2"></i>Hablemos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 
